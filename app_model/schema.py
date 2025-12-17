@@ -1,0 +1,11 @@
+def create_user_table(conn):
+    cur = conn.cursor()
+    sql = '''CREATE TABLE users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL UNIQUE,
+        password_hash TEXT NOT NULL
+    );'''
+    cur.execute(sql)
+    conn.commit()
+
+import sqlite3
